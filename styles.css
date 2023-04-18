@@ -1,3 +1,21 @@
+/* || COLORS & TYPOGRAPHY */
+
+:root {
+  --color-bg: #0f172a;
+  --color-text: #dbeafe;
+  --color-dark: #172554;
+  --color-mid: #1e3a8a;
+  --color-light: #3b82f6;
+
+  --font-size-xs: 14px;
+  --font-size-sm: 18px;
+  --font-size-md: 24px;
+  --font-size-lg: 32px;
+  --font-size-xl: 80px;
+}
+
+/* || GENERAL */
+
 * {
   margin: 0;
   padding: 0;
@@ -5,80 +23,121 @@
 }
 
 body {
-  background-color: black;
-  color: white;
+  background-color: var(--color-bg);
+  color: var(--color-text);
   font-family: Helvetica, Arial, sans-serif;
+  font-size: var(--font-size-sm);
 }
 
 main {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 80px;
+  gap: 80px;
+  padding: 80px 16px;
   max-width: 800px;
   margin: 0 auto;
 }
 
-form {
-  background-color: aquamarine;
-  padding: 24px;
-  color: black;
-  width: 100%;
+h1 {
+  font-size: var(--font-size-xl);
+  line-height: var(--font-size-xl);
 }
 
-.hide-form {
-  display: none;
+button {
+  cursor: pointer;
+  border: none;
+  padding: 16px 24px;
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: var(--font-size-sm);
+  background-color: var(--color-light);
+  color: var(--color-text);
+  transition: 0.3s;
+}
+
+button:hover {
+  background-color: var(--color-text);
+  color: var(--color-light);
+}
+
+i {
+  cursor: pointer;
+}
+
+.fa-book-bookmark {
+  color: var(--color-light);
+}
+
+/* || FORM */
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding: 24px;
+  max-width: 400px;
+  background-color: var(--color-dark);
+  border: 1px solid var(--color-light);
+  box-shadow: 8px 8px var(--color-light), 16px 16px var(--color-mid);
+}
+
+label {
+  font-weight: bold;
 }
 
 input {
   border: none;
   padding: 8px;
-  font-size: 16px;
-  border-radius: 4px;
   width: 100%;
+  margin-top: 8px;
+  background: var(--color-dark);
+  border: 1px solid var(--color-light);
+  color: var(--color-text);
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: var(--font-size-sm);
 }
 
+/* || TABLE */
+
 table {
-  border-collapse: collapse;
   width: 100%;
-  margin-top: 24px;
   border-collapse: collapse;
   table-layout: fixed;
+  background-color: var(--color-dark);
 }
 
 td,
 th {
   word-wrap: break-word;
-  border: 1px solid #dddddd;
   text-align: left;
-  padding: 8px;
+  padding: 16px 24px;
+  border: 1px solid var(--color-light);
 }
 
 tr:nth-child(even) {
-  background-color: #303030;
+  background-color: var(--color-mid);
 }
 
-tr:hover {
-  background-color: darkslategray;
+tr {
+  transition: 0.3s;
 }
 
-.fa-trash-can {
-  cursor: pointer;
-}
-
-.fa-trash-can:hover {
-  color: coral;
+tr:not(:first-child):hover {
+  background-color: var(--color-bg);
 }
 
 .cell-actions {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 8px;
+  gap: 16px;
 }
 
 select {
   padding: 4px;
   border: none;
   width: 100%;
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: var(--font-size-xs);
+  background-color: var(--color-text);
 }
