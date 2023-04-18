@@ -7,10 +7,6 @@ let library = [];
 
 // ------ EVENT LISTENERS ------
 
-btn.addEventListener("click", () => {
-  form.classList.toggle("hide-form");
-});
-
 form.addEventListener("submit", (event) => {
   event.preventDefault();
   addBookToLibrary();
