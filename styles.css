@@ -7,11 +7,11 @@
   --color-mid: #1e3a8a;
   --color-light: #3b82f6;
 
-  --font-size-xs: 14px;
-  --font-size-sm: 18px;
-  --font-size-md: 24px;
-  --font-size-lg: 32px;
-  --font-size-xl: 80px;
+  --font-size-xs: 0.875rem;
+  --font-size-sm: 1.125rem;
+  --font-size-md: 1.5rem;
+  --font-size-lg: 2rem;
+  --font-size-xl: 5rem;
 }
 
 /* || GENERAL */
@@ -22,6 +22,10 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
 }
 
 body {
@@ -140,4 +144,30 @@ select {
   font-size: var(--font-size-xs);
   background-color: var(--color-light);
   color: var(--color-text);
+}
+
+/* || RESPONSIVE */
+
+@media screen and (max-width: 720px) {
+  html {
+    font-size: 14px;
+  }
+
+  main {
+    padding: 64px 16px;
+    gap: 64px;
+  }
+
+  td,
+  th {
+    padding: 8px;
+  }
+
+  .cell-actions {
+    gap: 8px;
+  }
+
+  select {
+    padding: 4px;
+  }
 }
