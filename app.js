@@ -7,12 +7,22 @@ let library = [];
 
 // ------ EVENT LISTENERS ------
 
-form.addEventListener("submit", (event) => {
-  event.preventDefault();
-  addBookToLibrary();
-});
+window.addEventListener("load", setInitialBook);
+
+form.addEventListener("submit", handleSubmit);
 
 // ------ FUNCTIONS ------
+
+function setInitialBook() {
+  const placeholderBook = new Book("The Nightingale", "Kristin Hannah");
+
+  addBookToLibrary(placeholderBook);
+}
+
+function handleSubmit(event) {
+  event.preventDefault();
+  addBookToLibrary(new Book(titleInput.value, authorInput.value));
+}
 
 function Book(title, author) {
   this.title = title;
@@ -25,15 +35,13 @@ Book.prototype.getNextId = () => {
   return Book.prototype.currentId++;
 };
 
-function addBookToLibrary() {
-  const book = new Book(titleInput.value, authorInput.value);
-
-  const doesBookExist = library.some(
+function addBookToLibrary(book) {
+  const isDuplicate = library.some(
     (libraryBook) =>
       libraryBook.title === book.title && libraryBook.author === book.author
   );
 
-  if (doesBookExist) return;
+  if (isDuplicate) return;
 
   library.push(book);
 
