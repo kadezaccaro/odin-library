@@ -24,16 +24,20 @@ function handleSubmit(event) {
   addBookToLibrary(new Book(titleInput.value, authorInput.value));
 }
 
-function Book(title, author) {
-  this.title = title;
-  this.author = author;
-  this.id = Book.prototype.getNextId();
-}
+class Book {
+  constructor(title, author) {
+    this.title = title;
+    this.author = author;
+    this.id = this.getNextId();
+  }
 
-Book.prototype.currentId = 1;
-Book.prototype.getNextId = () => {
-  return Book.prototype.currentId++;
-};
+  getNextId() {
+    if (!Book.currentId) {
+      Book.currentId = 1;
+    }
+    return Book.currentId++;
+  }
+}
 
 function addBookToLibrary(book) {
   const isDuplicate = library.some(
