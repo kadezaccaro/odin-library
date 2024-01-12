@@ -5,7 +5,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Odin Library</title>
-    <!-- css -->
     <link rel="stylesheet" href="styles.css" />
     <!-- font awesome -->
     <link
@@ -17,10 +16,11 @@
     <main>
       <h1>Library <i class="fa-solid fa-book-bookmark"></i></h1>
 
-      <form class="hide-form" autocomplete="off">
+      <form autocomplete="off" novalidate>
         <label for="title">
           Title:
           <input type="text" id="title" required />
+          <span class="error" aria-live="polite"></span>
         </label>
 
         <label for="author">

@@ -2,27 +2,8 @@ const btn = document.querySelector(".new-book-btn");
 const form = document.querySelector("form");
 const authorInput = document.querySelector("#author");
 const titleInput = document.querySelector("#title");
-
+const error = document.querySelector(".error");
 let library = [];
-
-// ------ EVENT LISTENERS ------
-
-window.addEventListener("load", setInitialBook);
-
-form.addEventListener("submit", handleSubmit);
-
-// ------ FUNCTIONS ------
-
-function setInitialBook() {
-  const placeholderBook = new Book("The Nightingale", "Kristin Hannah");
-
-  addBookToLibrary(placeholderBook);
-}
-
-function handleSubmit(event) {
-  event.preventDefault();
-  addBookToLibrary(new Book(titleInput.value, authorInput.value));
-}
 
 class Book {
   constructor(title, author) {
@@ -39,16 +20,34 @@ class Book {
   }
 }
 
+window.addEventListener("load", initLibraryWithPlaceholderBook);
+form.addEventListener("submit", handleSubmit);
+
+function initLibraryWithPlaceholderBook() {
+  const placeholderBook = new Book("The Nightingale", "Kristin Hannah");
+  addBookToLibrary(placeholderBook);
+}
+
+function handleSubmit(event) {
+  event.preventDefault();
+  addBookToLibrary(new Book(titleInput.value, authorInput.value));
+}
+
 function addBookToLibrary(book) {
   const isDuplicate = library.some(
     (libraryBook) =>
       libraryBook.title === book.title && libraryBook.author === book.author
   );
 
-  if (isDuplicate) return;
+  if (isDuplicate) {
+    // js custom form validation message
+    error.textContent = `The book "${book.title}" by "${book.author}" already exists in the library.`;
+    return;
+  } else {
+    error.textContent = "";
+  }
 
   library.push(book);
-
   displayBook(book);
 }
 

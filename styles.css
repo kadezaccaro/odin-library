@@ -6,6 +6,7 @@
   --color-dark: #172554;
   --color-mid: #1e3a8a;
   --color-light: #3b82f6;
+  --color-error: #ef4444;
 
   --font-size-xs: 0.875rem;
   --font-size-sm: 1.125rem;
@@ -81,6 +82,7 @@ form {
   flex-direction: column;
   gap: 24px;
   padding: 24px;
+  width: 100%;
   max-width: 400px;
   background-color: var(--color-dark);
   border: 1px solid var(--color-light);
@@ -101,6 +103,14 @@ input {
   color: var(--color-text);
   font-family: Helvetica, Arial, sans-serif;
   font-size: var(--font-size-sm);
+}
+
+.error {
+  color: var(--color-error);
+  font-size: var(--font-size-xs);
+  word-wrap: break-word; /* prevent long text from exceeding parent container */
+  display: block;
+  margin-top: 4px;
 }
 
 /* || TABLE */
